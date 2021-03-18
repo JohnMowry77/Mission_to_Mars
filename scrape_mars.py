@@ -14,15 +14,17 @@ def index():
 	return render_template('index.html', data_from_flask=data_from_mongo)
 	#return render_template('index.html', dict=data_from_mongo)
 
-
+# create a new route:
 # @app.route('/scrape')
 # def scrape():
-# 	print ('clicked button')
+# 	print ('clicked button') #it needs to call the scrape_mars.py. 
 
-# 	#call the scrape_mars.py, which will return a dict of results
-# 	# store the dict of results to mongo 
-# 	# using client.mars_db_one.mars_info.insert(, upsert=True)
+# 	what is important is that it will return a dict of results
+# 	# store the dict of results to mongo using client.mars_db_one.mars_info.insert(, upsert=True)
+#	mars_info=
+
 # 	data_from_mongo=client.mars_db_one.find_one()
+
 # 	return render_template('index.html', data_from_flask=data_from)
 # 	call the scrape_mars.py, which will retrun a dict of ....
 
@@ -34,11 +36,3 @@ if __name__=='__main__':
 	app.run(debug=True)
 
 
-# @app.route('/')
-# def index():
-# 	data_from_mongo=client.mars_db.one.find_one()
-# 	print(list(data_from_mongo))
-# 	return render_template('index.html', data_from_flask=data_from_mongo)
-# 	#return render_template('index.html', dict=data_from_mongo)
-
-#Above we ar
