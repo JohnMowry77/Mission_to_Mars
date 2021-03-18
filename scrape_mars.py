@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 import pymongo
 
 app=Flask(__name__)
@@ -17,6 +17,8 @@ def index():
 
 # @app.route('/scrape')
 # def scrape():
+# 	print ('clicked button')
+
 # 	#call the scrape_mars.py, which will return a dict of results
 # 	# store the dict of results to mongo 
 # 	# using client.mars_db_one.mars_info.insert(, upsert=True)
@@ -26,6 +28,7 @@ def index():
 
 # 	store the dict of results to mongodb 
 # 		mars_db_one -- collection mars_info # need to add image & hemisphere images/hrefs still
+	return redirect('/')
 
 if __name__=='__main__':
 	app.run(debug=True)
