@@ -58,68 +58,60 @@ def scrape():
     html=browser.html
     soup=BeautifulSoup(browser.html, 'html.parser')
     featured_image_url=soup.find('a', class_='BaseButton')['href']
-    print(featured_image_url)
+    #print(featured_image_url)
+
     #append mars_image to mars_dict, use 'image_tag'as key
     mars_dict['image_tag']=featured_image_url
 
-#     return browser
+    #Scrape Mars facts table from website
+    url='https://space-facts.com/mars/'
+    #use pandas to create a table
+    tables = pd.read_html(url)
+    mars_facts=tables[0]
+    #rename columns & set index to first column
+    mars_facts=mars_facts.rename(columns=({0: "Metric", 1: "Measurement"}))
+    mars_facts=mars_facts.set_index('Metric')
+    #export table to html string
+    mars_facts=mars_facts.to_html()
+    #print(mars_facts)
 
-# #visit the hemispehere url
-#     mars_hemisphere_url='https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
-#     browser.visit(mars_hemisphere_url)
-#     time.sleep(.5)
-#     html=browser.html
-#     soup=BeautifulSoup(html, 'html.parser')
-#     mars_hem_photos=soup.find_all('div', class_='description')
-# #mars_hem_photos
-# #base_url='https://astrogeology.usgs.gov'
+    #append mars_facts to mars_dict, use "mars_facts" as key
 
-# #create empty list to append results
+    mars_dict['mars_facts']=mars_facts
 
-# #title_hem=[]
-# #links=[]
-# 	hemisphere_img_urls=[]
-# 	count=0
-# #use splinter to find by css 
-# 	class_description=browser.find_by_css("h3")
+    # visit the hemispehere url 
+    mars_hemisphere_url='https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
+    browser.visit(mars_hemisphere_url)
+    time.sleep(.5)
+    html=browser.html
+    soup=BeautifulSoup(html, 'html.parser')
+    mars_hem_photos=soup.find_all('div', class_='description')
+    #create empty list to append results
+    hemisphere_img_urls=[]
+    count=0
+    #use splinter to find by css 
+    class_description=browser.find_by_css("h3")
+    #iterate throught list: append title and href #append hem_img_urls
+    for mars_hem in mars_hem_photos:
+        title=mars_hem.find('h3').text
+        link= mars_hem.find('a')
+        href=link['href']
+        #use splinter to find href, find_by_tag then click
+        browser.links.find_by_partial_href(href)
+        browser.find_by_tag('h3')[count].click()
+        #watch screen
+        time.sleep(0.5)
 
-# #iterate throught list: append title and href #append hem_img_urls
-
-# 	for mars_hem in mars_hem_photos:
-#     	title=mars_hem.find('h3').text
-#     	link= mars_hem.find('a')
-#     	href=link['href']
-# # use splinter to find href, find_by_tag then click
-#     	browser.links.find_by_partial_href(href)
-#     	browser.find_by_tag('h3')[count].click()
-#     #watch screen
-#     	time.sleep(0.5)
+        count=count+1
+        html=browser.html
+        soup_2=BeautifulSoup(html, 'html.parser')
+        mars_img_url=browser.find_by_text('Original')['href']
+        hemisphere_dict={"title": title, "img_url": mars_img_url}
+        hemisphere_img_urls.append(hemisphere_dict)
+        mars_dict['hemispheres']=hemisphere_img_urls
     
-#     	count=count+1
-#     #rerun browser
-#     	html=browser.html
-#     	soup_2=BeautifulSoup(html, 'html.parser')
-#     	mars_img_url=browser.find_by_text('Original')['href']
-#     #mars_img_url=soup.find('li')['href']
-#     #print(mars_img_url)
-#     	hemisphere_dict={
-#     	"title": title,
-#     	"img_url": mars_img_url}
-#     	hemisphere_img_urls.append(hemisphere_dict)
-#         mars_dict['hemispheres']=hemisphere_img_urls
+        browser.back()
     
-#     browser.back()
-    
-# #visit space-facts url
-# 	url='https://space-facts.com/mars/'
-#     tables= pd.read_html(url)
-#     mars_facts=tables[0]
-#     mars_facts=mars_facts.rename(columns=({0: "Metric", 1: "Measurement"})
-#     mars_facts=mars_facts.set_index('Metric')
-#     mars_fact=mars_facts.to_html()
-#     mars_dict['mars_facts']=mars_facts
-
-
 #     browser.quit()
 
 #     return mars_dict
