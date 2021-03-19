@@ -5,7 +5,13 @@ from webdriver_manager.chrome import ChromeDriverManager
 import time
 import pymongo
 from pymongo import MongoClient
+mongo_conn=pymongo.MongoClient('mongodb://localhost:27017')
+mars_db_one = mongo_conn["mars_db_one"]
+mars_info = mars_db_one["mars"]
 import pandas as pd
+
+
+mars_dict={}
 
 def scrape():
 	executable_path={'executable_path': ChromeDriverManager().install()}
@@ -18,31 +24,37 @@ def scrape():
 	soup=BeautifulSoup(mars_html,'html.parser')
 
 	news_title=soup.findAll("div", class_="content_title")
-	for title in news_title[1]:
-    children = list(title.children) 
-    if children:
-        first = children[0]
-        print(getattr(first, "text")  
-              if hasattr(first, "text")
-                  else first)
+    news_titles=[]
+    for title in news_title[1]:
+        children = list(title.children) 
+        if children:
+            first = children[0] 
+            print(getattr(first, "text")  
+                if hasattr(first, "text")
+                else first)
         news_titles.append((getattr(first, "text")
-              if hasattr(first, "text")
-                  else first))
-	news_title=news_titles[0]
+        if hasattr(first, "text")
+        else first))
+        mars_dict['news_titles']=news_titles
 
-	for teaser in mars_news_p[:1]: 
-    teaser=list(teaser.children)
-    if teaser:
-        first=teaser[0]
-        print(getattr(first, "text")
-              if hasattr(first, "text")
-                  else first)
-        
-        news_paragraph.append((getattr(first, "text")  
-              if hasattr(first, "text")
-                  else firs
-                  t))
-    news_paragraph[0]
+
+    mars_news_p=soup.findAll("div", class_="article_teaser_body")
+    news_paragraph=[]
+    for teaser in mars_news_p[:1]: 
+        teaser=list(teaser.children) 
+        if teaser:
+            first=teaser[0] #teaser zero index
+            print(getattr(first, "text") # anchor has text
+                  if hasattr(first, "text")
+                      else first)
+            
+            news_paragraph.append((getattr(first, "text")  
+                  if hasattr(first, "text")
+                      else first))
+
+
+
+    mars_dict['news_p']= news_paragraph[0]
 
     return browser
 
@@ -57,6 +69,7 @@ def scrape():
     html=browser.html
     soup=BeautifulSoup(browser.html, 'html.parser')
     featured_image_url=soup.find('a', class_='BaseButton')['href']
+    mars_dict['image_tag']=featured_image_url
 
     return browser
 
@@ -66,7 +79,6 @@ def scrape():
     time.sleep(.5)
     html=browser.html
     soup=BeautifulSoup(html, 'html.parser')
-    mars_hem_photos=soup.find_all('div', class_='description')
     mars_hem_photos=soup.find_all('div', class_='description')
 #mars_hem_photos
 #base_url='https://astrogeology.usgs.gov'
@@ -103,15 +115,26 @@ def scrape():
     	"title": title,
     	"img_url": mars_img_url}
     	hemisphere_img_urls.append(hemisphere_dict)
+        mars_dict['hemispheres']=hemisphere_img_urls
     
     browser.back()
     
-
-
-
-
 #visit space-facts url
 	url='https://space-facts.com/mars/'
+    tables= pd.read_html(url)
+    mars_facts=tables[0]
+    mars_facts=mars_facts.rename(columns=({0: "Metric", 1: "Measurement"})
+    mars_facts=mars_facts.set_index('Metric')
+    mars_fact=mars_facts.to_html()
+    mars_dict['mars_facts']=mars_facts
+
+
+    browser.quit()
+
+    return mars_dict
+    mars_db_one.mars_info.insert_one(mars_dict)
+
+
 
 
 

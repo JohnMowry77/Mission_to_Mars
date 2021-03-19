@@ -20,8 +20,8 @@ create a new route:
 @app.route('/scrape')
 def scrape():
 	mars_data= scrape_mars.scrape()
-	print(mars_data)
-	client.mars_db_one.mars_info.update({}, mars_data, upsert=True)
+	print(mars_info)
+	client.mars_db_one.mars_info.update_one({}, mars_data, upsert=True)
 	
 
 # 	print ('clicked button') #it needs to call the scrape_mars.py. 
@@ -36,7 +36,7 @@ def scrape():
 # 	call the scrape_mars.py, which will retrun a dict of ....
 
 # 	store the dict of results to mongodb 
-# 		mars_db_one -- collection mars_info # need to add image & hemisphere images/hrefs still
+
 	return redirect('/')
 
 if __name__=='__main__':
