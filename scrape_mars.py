@@ -37,6 +37,7 @@ def scrape():
     mars_html=browser.html
     # Use soup to get the mars title & teaser for the first article
     soup=BeautifulSoup(mars_html,'html.parser')
+    
     news_title=soup.findAll("div", class_="content_title")
     news_title=news_title[1].text
     mars_news_p=soup.find_all("div", class_="article_teaser_body")
@@ -52,12 +53,14 @@ def scrape():
     
     browser.visit(image_url)
     time.sleep(0.5)
-    browser.find_by_css('img.BaseImage').first.click()
+    browser.find_by_css('img.BaseImage').click()
     time.sleep(0.25)
 
     html=browser.html
     soup=BeautifulSoup(browser.html, 'html.parser')
-    featured_image_url=soup.find('a', class_='BaseButton')['href']
+    featured_image_url=soup.find_all("img", class_="BaseImage")
+    #returns a list, grab by index integer
+    featured_image_url=(featured_image_url[0]['src'])
     #print(featured_image_url)
 
     #append mars_image to mars_dict, use 'image_tag'as key
@@ -108,15 +111,16 @@ def scrape():
         mars_img_url=browser.find_by_text('Original')['href']
         hemisphere_dict={"title": title, "img_url": mars_img_url}
         hemisphere_img_urls.append(hemisphere_dict)
+        #append hemisphere img urls to mars_dict, use 'hemispheres' as the key
         mars_dict['hemispheres']=hemisphere_img_urls
-    
-        browser.back()
 
-    
+    #Close the browser after scraping
     browser.quit()
-    return(mars_dict)
-    print(mars_dict)
-    
+
+    #return mars_dict which has the scraped values
+    return mars_dict
+    # print(mars_dict)
+
 #     return mars_dict
 #     mars_db_one.mars_info.insert_one(mars_dict)
 
