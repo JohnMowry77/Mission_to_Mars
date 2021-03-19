@@ -111,9 +111,12 @@ def scrape():
         mars_dict['hemispheres']=hemisphere_img_urls
     
         browser.back()
-    
-#     browser.quit()
 
+    
+    browser.quit()
+    return(mars_dict)
+    print(mars_dict)
+    
 #     return mars_dict
 #     mars_db_one.mars_info.insert_one(mars_dict)
 
