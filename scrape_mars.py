@@ -11,7 +11,7 @@ mars_info = mars_db_one["mars"]
 import pandas as pd
 
 
-mars_dict={}
+# mars_dict={}
 
 def init_browser():
     # Chromedriver path
@@ -38,56 +38,14 @@ def scrape():
     soup=BeautifulSoup(mars_html,'html.parser')
     news_title=soup.findAll("div", class_="content_title")
     news_title=news_title[1].text
-    # mars_news_p=soup.find_all("div", class_="article_teaser_body")
-    # mars_news_p=mars_news_p[0].text
+    mars_news_p=soup.find_all("div", class_="article_teaser_body")
+    mars_news_p=mars_news_p[0].text
 
-    #
+    #append news_title & mars_news_p to mars_dict dictionary using 'news_title' & 'news_p' as keys
+    mars_dict['news_title']=news_title
+    mars_dict['news_p']=mars_news_p
+    print(mars_news_p)
 
-
-
-     
-#append news_title & mars_news_p to mars_dict dictionary using 'news_title' & 'news_p' as keys
-
-
-
-# 	mars_news= requests.get(mars_news_path)
-# 	browser.visit(mars_news_path)
-# 	sleep(0.5)
-# 	mars_html=browser.html
-# 	soup=BeautifulSoup(mars_html,'html.parser')
-
-	# news_=[]
- #    for title in title=soup.findAll("div", class_="content_title"):
- #        news_titles in news_title[1]:
- #        children = list(title.children) 
- #        if children:
- #            first = children[0] 
- #            print(getattr(first, "text")  
- #                if hasattr(first, "text")
- #                else first)
- #        news_titles.append((getattr(first, "text")
- #        if hasattr(first, "text")
- #        else first))
- #        mars_dict['news_titles']=news_titles
-
-
-#     mars_news_p=soup.findAll("div", class_="article_teaser_body")
-#     news_paragraph=[]
-#     for teaser in mars_news_p[:1]: 
-#         teaser=list(teaser.children) 
-#         if teaser:
-#             first=teaser[0] #teaser zero index
-#             print(getattr(first, "text") # anchor has text
-#                   if hasattr(first, "text")
-#                       else first)
-            
-#             news_paragraph.append((getattr(first, "text")  
-#                   if hasattr(first, "text")
-#                       else first))
-
-
-
-#     mars_dict['news_p']= news_paragraph[0]
 
 #     return browser
 
