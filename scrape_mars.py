@@ -16,8 +16,8 @@ import pandas as pd
 def init_browser():
     # Chromedriver path
     executable_path={'executable_path': ChromeDriverManager().install()}
+    #init_browser function must return the browser to pass through to other functions
     return Browser('chrome', **executable_path, headless=False)
-
 
 def scrape():
     from bs4 import BeautifulSoup
@@ -29,12 +29,13 @@ def scrape():
     # allows you to re-use browser
     browser= init_browser()
 
+    
     mars_news_path='https://mars.nasa.gov/news/'
     #print("I am running")
     browser.visit(mars_news_path)
     time.sleep(0.5)
     mars_html=browser.html
-
+    # Use soup to get the mars title & teaser for the first article
     soup=BeautifulSoup(mars_html,'html.parser')
     news_title=soup.findAll("div", class_="content_title")
     news_title=news_title[1].text
@@ -44,23 +45,22 @@ def scrape():
     #append news_title & mars_news_p to mars_dict dictionary using 'news_title' & 'news_p' as keys
     mars_dict['news_title']=news_title
     mars_dict['news_p']=mars_news_p
-    print(mars_news_p)
+    #print(mars_news_p)
 
-
-#     return browser
-
-# #visit the image_url
-#     image_url="https://www.jpl.nasa.gov/images?search=&category=Mars"
+    # #visit the  mars image_url
+    image_url="https://www.jpl.nasa.gov/images?search=&category=Mars"
     
-#     browser.visit(image_url)
-#     time.sleep(0.5)
-#     browser.find_by_css('img.BaseImage').first.click()
-#     time.sleep(0.25)
+    browser.visit(image_url)
+    time.sleep(0.5)
+    browser.find_by_css('img.BaseImage').first.click()
+    time.sleep(0.25)
 
-#     html=browser.html
-#     soup=BeautifulSoup(browser.html, 'html.parser')
-#     featured_image_url=soup.find('a', class_='BaseButton')['href']
-#     mars_dict['image_tag']=featured_image_url
+    html=browser.html
+    soup=BeautifulSoup(browser.html, 'html.parser')
+    featured_image_url=soup.find('a', class_='BaseButton')['href']
+    print(featured_image_url)
+    #append mars_image to mars_dict, use 'image_tag'as key
+    mars_dict['image_tag']=featured_image_url
 
 #     return browser
 
