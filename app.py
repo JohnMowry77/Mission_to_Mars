@@ -25,7 +25,7 @@ def scrape():
 	mars = mongo.db.mars_info
 	mars_data= scrape_mars.scrape()
 	#print(mars_data)
-	mars.update({}, mars_data, upsert=True)
+	mars.update_one(mars_data, upsert=True)
 	
 
 # 	print ('clicked button') #it needs to call the scrape_mars.py. 
