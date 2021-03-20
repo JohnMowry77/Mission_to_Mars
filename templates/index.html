@@ -12,14 +12,15 @@
 <!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 
 <!--   <link rel="stylesheet" href="../Assets/html_style.css"> -->
-  <link rel="stylesheet" type= "text/css" href= "{{ url_for ('static', filename='styles/html_style.css')}}">
+  <link rel="stylesheet" type= "text/css" href= "{{ url_for ('static', filename='/styles/html_style.css')}}">
+ 
 
 </head>
 <body>
 	<div class= 'container-fluid'>
 		<div class= "row" style="background-color: black; font: white;">
 			<div class= 'jumbotron text-center'>
-				<header class="header" style="text-align: center;">
+				<header class="header">
 				<h5> Mission to Mars</h5>
 				</header>
 				<p><a class="btn btn-primary btn-lg" href="/scrape" role="button" style= "text-align:center; background-color:black; font: white;">Get Mars Data!</a></p> 
@@ -29,20 +30,33 @@
 
 
 	<div class= "container-fluid">
-		<div class = 'row' style="background-color:black; font: white;">
+		<div class = 'row'>
 			<div class= 'col-md-6'>
 				<h2> Latest Mars News:</h2>
 				<h3>{{mars_info.news_title}}</h3>
-				<a>{{mars_info.news_p}}</a>
+				<p class="white_text">{{mars_info.news_p}}</p>
 
 			</div>
 
 			<div class="col-md-6 text-center">
-				<img src="../static/mars_color.jpeg" style="width: 200px; height: 200px;">
-				<img src="../static/mars_life.jpg" style="width: 200px; height: 200px;">
-				<img src="../static/mars_life_2.jpeg" style="width: 200px; height: 200px;">
+				<div class= 'row'>
+					<div class= 'col-md-3'>
+						<img src="/static/mars_color.jpeg" class="img-fluid">
+						<!--<img src="/static/ayrton_senna_movie_wallpaper_by_bashgfx-d4cm6x6.jpg">-->
+					</div>
+					<div class= 'col-md-3'>
+						<img src="/static/mars_life.jpg" class="img-fluid">
+					</div>
+					<div class= 'col-md-3'>	
+						<img src="/static/mars_life_2.jpeg" class="img-fluid">
+					</div>
+					<div class= 'col-md-3'>
+						<img src="/static/mission_to_mars.png" class="img-fluid">
+					</div>
+				</div>
 			</div>
 		</div>
+
 		<div class = 'row' style="background-color:black; font: white;">
 			<div class= "col-md-12">
 				<div class= "row">
