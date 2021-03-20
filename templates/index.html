@@ -34,7 +34,7 @@
 				<h2> Latest Mars News:</h2>
 				<h3>{{mars_info.news_title}}</h3>
 				<a>{{mars_info.news_p}}</a>
-				<p><em>Max Temperature</em></p>
+
 			</div>
 
 			<div class="col-md-6 text-center">
@@ -43,22 +43,22 @@
 				<img src="../static/mars_life_2.jpeg" style="width: 200px; height: 200px;">
 			</div>
 		</div>
-		<div class = 'row' style="background-color:black; font:white;">
+		<div class = 'row' style="background-color:black; font: white;">
 			<div class= "col-md-12">
 				<div class= "row">
 					<div class= "col-md-7">
-						<header class="header" style="text-align: center;">
+						<header class="header">
 							<h6> Featured Mars Image</h6>
 						</header>
-						<img src="{{mars_info.image_tag}}" class= 'img-responsive' style='width:auto; height: auto;' alt='featured_img'>
+						<img src="{{mars_info.image_tag}}" class= 'img-responsive' alt='featured_img'>
 					</div>
 				</div>
 				<div class= 'row'>
 	 				<div class = col-md-5>
-	 					<header class="header" style="text-align: center;">
+	 					<header class="header">
 	 					<h2> Mars Facts</h2>
 	 					</header>
-	 					<table class= "table table-striped">
+	 					<table class= "table">
 	 						{{mars_info.mars_facts | safe}}
 	 					</table>
 	 				</div>
@@ -68,19 +68,21 @@
 	 
 	 	<div class= 'row'>
 	 		<div class = col-md-12>
-	 			<header class="header" style="text-align: center;">
+	 			<header class="header">
 	 			<h3> Mars Hemispheres</h3>
 	 			</header>
 	 				<div class = 'row'>
 	 					<div class = 'col-md-6'>
 	 						<div class= "box box-1">
-	 							<img src="{{mars_info.hemispheres[0].img_url}}" class= 'img-responsive' style='width:auto; height: auto;' alt="hemisphere_img_0">
+	 							<img src="{{mars_info.hemispheres[0].img_url}}" class= 'img-responsive' alt="hemisphere_img_0">
+	 							<p><em>Cerberus Hemisphere Enhanced</em></p>
 	 						</div>
 	 					</div>
 
 	 					<div class= 'col-md-6'>
 	 						<div class= "box box-1">
-	 							<img src="{{mars_info.hemispheres[1].img_url}}" class= 'img-responsive' style='width:auto; height: auto;' alt="hemisphere_img_1">
+	 							<img src="{{mars_info.hemispheres[1].img_url}}" class= 'img-responsive' alt="hemisphere_img_1">
+	 							<p><em>Schiaparelli Hemisphere Enhanced</em></p>
 	 						</div>
 	 					</div>
 	 				</div>
@@ -88,13 +90,15 @@
 	 				<div class = 'row'>
 	 					<div class = 'col-md-6'>
 	 						<div class = "box box-1">
-	 							<img src="{{mars_info.hemispheres[2].img_url}}" class= 'img-responsive' style='width:auto; height: auto;' alt="hemisphere_img_2">
+	 							<img src="{{mars_info.hemispheres[2].img_url}}" class= 'img-responsive' alt="hemisphere_img_2">
+	 							<p><em>Syrtis Major Hemisphere Enhanced</em></p>
 	 						</div>
 	 					</div>
 
 	 					<div class = 'col-sm-6'>
 	 						<div class = "box box-1">
-	 							<img src="{{mars_info.hemispheres[3].img_url}}" class= 'img-responsive' style='width:auto; height: auto;' alt="hemisphere_img_3">
+	 							<img src="{{mars_info.hemispheres[3].img_url}}" class= 'img-responsive' alt="hemisphere_img_3">
+	 							<p><em>Valles Marineris Hemisphere Enhanced</em></p>
 	 						</div>
 	 					</div>
 	 				</div>
