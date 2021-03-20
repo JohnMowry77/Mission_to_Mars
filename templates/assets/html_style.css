@@ -16,25 +16,28 @@
 .header {
 	font-size: 10px;
 	text-align: left;
-	padding: 10px;
-	background-color: navy;
+	padding: 2px;
+	background-color: black;
 	color: white;
 }
 
 h1 {
+  font-size: 20px;
   color:red;
 }
 
 h2 {
-	color: navy;
+  font-size: 20px;
+	color: white;
 }
 
 h3 {
-  color: orange;
+  font-size: 30px;
+  color: white;
 }
 
 img {
-	box-shadow: 5px 5px 5px 2px orange;
+	box-shadow: 5px 5px 5px 2px black;
   margin-right: 10px;
 }
 
@@ -66,12 +69,12 @@ so that you don't have to repeat yourself.
 
 /*as long as it is less than 600px then apply these rules:
 */
-@media (max-width: 600px) {
+/*@media (max-width: 600px) {
   .navbar li {
     padding: 5px;
     font-size:3.5rem;
   }
-}
+}*/
 /* every article that belongs to the class post, change the article margins to be reduced
 */
 /*  article.post {
@@ -96,7 +99,7 @@ Percentage is more adaptive & gives a better user experience
 
 /* includes alternating gray and white with on-hover color */
 
-.mystyle {
+/*.mystyle {
     font-size: 15pt ! important; 
     font-family: Arial ! important;
     border-collapse: collapse ! important; 
@@ -115,4 +118,4 @@ Percentage is more adaptive & gives a better user experience
 .mystyle tr:hover {
     background: silver ! important;
     cursor: pointer ! important;
-}
+}*/
