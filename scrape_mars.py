@@ -37,11 +37,14 @@ def scrape():
     mars_html=browser.html
     # Use soup to get the mars title & teaser for the first article
     soup=BeautifulSoup(mars_html,'html.parser')
-    
-    news_title=soup.findAll("div", class_="content_title")
-    news_title=news_title[1].text
-    mars_news_p=soup.find_all("div", class_="article_teaser_body")
-    mars_news_p=mars_news_p[0].text
+
+    try:
+        news_title=soup.findAll("div", class_="content_title")
+        news_title=news_title[1].text
+        mars_news_p=soup.find_all("div", class_="article_teaser_body")
+        mars_news_p=mars_news_p[0].text
+    except AttributeError as e:
+        print('CORRECT ME')
 
     #append news_title & mars_news_p to mars_dict dictionary using 'news_title' & 'news_p' as keys
     mars_dict['news_title']=news_title

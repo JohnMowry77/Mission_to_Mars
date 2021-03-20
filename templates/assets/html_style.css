@@ -1,0 +1,118 @@
+.navbar {
+    font-color: teal;
+    background: #D6D6D6;
+    padding: 3px;
+}
+
+.navbar li  a {
+    background: white;
+    display: inline-block;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 3px;
+}
+
+.header {
+	font-size: 10px;
+	text-align: left;
+	padding: 10px;
+	background-color: navy;
+	color: white;
+}
+
+h1 {
+  color:red;
+}
+
+h2 {
+	color: navy;
+}
+
+h3 {
+  color: orange;
+}
+
+img {
+	box-shadow: 5px 5px 5px 2px orange;
+  margin-right: 10px;
+}
+
+/*.id {
+  align-content: center;
+}*/
+
+
+
+/*}
+
+.box {
+  height: 400px;
+  padding: 20px;
+  color: #fff;
+  background: deepskyblue;
+}
+
+.margin-top-80 {
+  margin-top: 80px;
+}*/
+
+
+
+
+/* make changes on the class rather than the elements 
+so that you don't have to repeat yourself.
+*/
+
+/*as long as it is less than 600px then apply these rules:
+*/
+@media (max-width: 600px) {
+  .navbar li {
+    padding: 5px;
+    font-size:3.5rem;
+  }
+}
+/* every article that belongs to the class post, change the article margins to be reduced
+*/
+/*  article.post {
+    margin-right: 30px;
+    margin-left: 30px;
+  }
+ make the nav bar disappear if it is too short 
+note: you can also do:   visibility: hidden;
+which would go whre display: none; currently is
+
+
+/*Note if you have the brain for it, you should use %'s to resize instead of pixels.
+Percentage is more adaptive & gives a better user experience
+*/
+
+/*  .navbar ul {
+    display: none;g
+  }*/
+
+/*}*/
+
+
+/* includes alternating gray and white with on-hover color */
+
+.mystyle {
+    font-size: 15pt ! important; 
+    font-family: Arial ! important;
+    border-collapse: collapse ! important; 
+    border: 1px solid silver ! important;
+
+}
+
+.mystyle td, th {
+    padding: 5px ! important;
+}
+
+.mystyle tr:nth-child(even) {
+    background: #E0E0E0 ! important;
+}
+
+.mystyle tr:hover {
+    background: silver ! important;
+    cursor: pointer ! important;
+}
