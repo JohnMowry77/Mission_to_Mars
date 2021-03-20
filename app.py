@@ -10,7 +10,7 @@ app.config["MONGO_URI"] ="mongodb://localhost:27017/mars_db_one"
 mongo=PyMongo(app)
 
 @app.route('/')
-def index():
+def home():
 	mongo_data=mongo.db.mars_info.find_one()
 	#print(list(data_from_mongo))	
 	if mongo_data:
@@ -23,9 +23,11 @@ def index():
 @app.route('/scrape')
 def scrape():
 	mars = mongo.db.mars_info
+	#run the scrape function
 	mars_data= scrape_mars.scrape()
 	#print(mars_data)
-	mars.update_one(mars_data, upsert=True)
+	#update mongodb using update
+	mars.update({}, mars_data, upsert=True)
 	
 
 # 	print ('clicked button') #it needs to call the scrape_mars.py. 

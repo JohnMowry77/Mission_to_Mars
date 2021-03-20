@@ -1,4 +1,4 @@
-.navbar {
+/*.navbar {
     font-color: teal;
     background: #D6D6D6;
     padding: 3px;
@@ -11,34 +11,54 @@
     margin-left: 10px;
     margin-right: 10px;
     border-radius: 3px;
-}
+}*/
 
 .header {
 	font-size: 10px;
-	text-align: left;
-	padding: 2px;
+	text-align: center;
+	/*padding: 2px;*/
 	background-color: black;
 	color: white;
 }
 
-h1 {
+h5 {
   font-size: 20px;
-  color:red;
+  text-align:center;
+  color:white;
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 30px;
+  text-align: center;
+  background-color: black;
 	color: white;
 }
 
 h3 {
-  font-size: 30px;
+  font-size: 5px;
+  text-align: left;
+  background-color: black;
   color: white;
 }
 
 img {
 	box-shadow: 5px 5px 5px 2px black;
+  padding: 10px;
   margin-right: 10px;
+}
+.table {  font-size: 10px;
+  text-align: center;
+  /*padding: 2px;*/
+  background-color: black;
+  color: white;}
+
+/*as long as it is less than 600px then apply these rules:
+*/
+@media (max-width: 600px) {
+  .navbar li {
+    padding: 5px;
+    font-size:3.5rem;
+  }
 }
 
 /*.id {
@@ -67,14 +87,8 @@ img {
 so that you don't have to repeat yourself.
 */
 
-/*as long as it is less than 600px then apply these rules:
-*/
-/*@media (max-width: 600px) {
-  .navbar li {
-    padding: 5px;
-    font-size:3.5rem;
-  }
-}*/
+
+
 /* every article that belongs to the class post, change the article margins to be reduced
 */
 /*  article.post {

@@ -7,50 +7,61 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!--     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 
-  <link rel="stylesheet" href="Assets/html_style.css">
+<!--   <link rel="stylesheet" href="../Assets/html_style.css"> -->
+  <link rel="stylesheet" type= "text/css" href= "{{ url_for ('static', filename='styles/html_style.css')}}">
 
 </head>
 <body>
 	<div class= 'container-fluid'>
-		<div class= 'jumbotron text-center'>
-			<header class="header">
-				<h1> Latest Mars Info</h1>
-			</header>
-			<p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Mars Data!</a></p> 
+		<div class= "row" style="background-color: black; font: white;">
+			<div class= 'jumbotron text-center'>
+				<header class="header" style="text-align: center;">
+				<h5> Mission to Mars</h5>
+				</header>
+				<p><a class="btn btn-primary btn-lg" href="/scrape" role="button" style= "text-align:center; background-color:black; font: white;">Get Mars Data!</a></p> 
+			</div>
 		</div>
 
-		<div class = 'row'>
-			<div class= 'col-md-12'>
-				<h2>{{mars_info.news_title}}</h2>
-				<p>{{mars_info.news_p}}</p>
+
+		<div class= "container-fluid">
+		<div class = 'row' style="background-color:black; font: white;">
+			<div class= 'col-md-6'>
+				<h2> Latest Mars News:</h2>
+				<h3>{{mars_info.news_title}}</h3>
+				<h3>{{mars_info.news_p}}</h3>
+			</div>
+			<div class="col-md-6 text-center">
+				<img src="../static/mars_color.jpeg" style="width: 200px; height: 200px;">
+				<img src="../static/mars_life.jpg" style="width: 200px; height: 200px;">
+				<img src="../static/mars_life_2.jpeg" style="width: 200px; height: 200px;">
 			</div>
 		</div>
-		<div class = 'row'>
-			<div class= "col-md-7">
-				<header class="header">
-					<h2> Featured Mars Image</h2>
-				</header>
-				<img src="{{mars_info.featured_image_url}}" alt=featured_img>
-			</div>
-			<div class= 'row'>
-	 			<div class = col-md-5>
-	 				<table class= 'table'>
-	 					{{mars_info.mars_facts}}
-	 				</table>
+		<div class = 'row' style="background-color:black; font:white;">
+			<div class= "col-md-12">
+				<div class= "row">
+					<div class= "col-md-7">
+						<header class="header">
+							<h2> Featured Mars Image</h2>
+						</header>
+						<img src="{{mars_info.image_tag}}" class= 'img-responsive' style='width:auto; height: auto;' alt='featured_img'>
+					</div>
+				</div>
+				<div class= 'row'>
+	 				<div class = col-md-5>
+	 					<header clas="header">
+	 					<h2> Mars Facts</header>
+	 					<table class= 'table' style="background-color: black; font:white;">
+	 						{{mars_info.mars_facts | safe}}
+	 					</table>
+	 				</div>
+	 			</div>
 	 			</div>
 	 		</div>
 		</div>
-<!-- 
-		<div class= 'row'>
-			<div class= 'col-md-12'>
-				{% for hemisphere, hemisphere_img_urls in mars_info.items() %}
-				{ {hemisphere}}: {{hemisphere_img_urls}}
-				{% end for %}
-			</div> -->
 	 
 	 	<div class= 'row'>
 	 		<div class = col-md-12>s
@@ -59,20 +70,20 @@
 	 			</header>
 	 				<div class = 'row'>
 	 					<div class = 'col-md-6'>
-	 						<img src="{{mars_info.hemisphere_img_urls[0]}}" alt="hemisphere_img_0">
+	 						<img src="{{mars_info.hemispheres[0].img_url}}" class= 'img-responsive' style='width:auto; height: auto;' alt="hemisphere_img_0">
 	 					</div>
 
 	 					<div class= 'col-md-6'>
-	 						<img src="{{mars_info.hemisphere_img_urls[1]}}" alt="hemisphere_img_1">
+	 						<img src="{{mars_info.hemispheres[1].img_url}}" alt="hemisphere_img_1">
 	 					</div>
 	 				</div>
 	 				<div class = 'row'>
 	 					<div class = 'col-md-6'>
-	 						<img src="{{mars_info.hemisphere_img_urls[2]}}" alt="hemisphere_img_2">
+	 						<img src="{{mars_info.hemispheres[2].img_url}}" alt="hemisphere_img_2">
 	 					</div>
 
 	 					<div class = 'col-md-6'>
-	 						<img src="{{mars_info.hemisphere_img_urls[3]}}" alt="hemisphere_img_3">
+	 						<img src="{{mars_info.hemispheres[3].img_url}}" alt="hemisphere_img_3">
 	 					</div>
 	 				</div>
 	 		</div>
