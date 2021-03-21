@@ -17,14 +17,23 @@
 
 .header {
   height: 200px;
-	font-size: 10px;
+	font-size: 20px;
 	text-align: center;
 	padding: 20px;
 	background-color: black;
 	color: white;
 }
 
-.row {
+.header_one {
+  height: 100px;
+  font-size: 50px;
+  text-align: center;
+  padding-top: 10px;
+  background-color: black;
+  color: white;
+}
+
+.box-1 {
   background-color: black; 
   font: white;
 }
@@ -35,17 +44,31 @@ a {
   color:white;
 }*/
 
+.img_one {
+  width:1000px; 
+  height: 800px;
+  box-shadow: 5px 5px 5px 2px black;
+  /*padding: 40px;*/
+  margin-right: 0px;
+  /*padding-bottom:10px;*/
+}
+
+
 p.white_text {
   font-size: 20px;
   text-align:center;
-  color:white !important;
+  background-color: black;
+  color:white;
 }
 
 
 h5 {
-  font-size: 15px;
-  text-align:center;
-  color:white;
+  height: 100px;
+  font-size: 100px;
+  text-align: center;
+  background-color: black;
+  color: white;
+  padding-top:20px;
 }
 
 h2 {
@@ -58,10 +81,10 @@ h2 {
 }
 
 h3 {
-  height: 50px;
+  height: 100px;
   font-size: 25px;
   padding: 10px;
-  text-align: left;
+  text-align: center;
   background-color: black;
   color: white;
 }
@@ -73,6 +96,7 @@ img {
   padding: 5px;
   margin-right: 0px;
   padding-bottom:2px;
+  background-color: black;
 }
 
 .table {  font-size: 10px;
@@ -82,13 +106,7 @@ img {
   color: black;
 }
 
-h6 {
-  font-size: 10px;
-  text-align: center;
-  background-color: black;
-  color: white;
-  padding-top:10px;
-  }
+
 /*as long as it is less than 600px then apply these rules:
 */
 @media (max-width: 600px) {

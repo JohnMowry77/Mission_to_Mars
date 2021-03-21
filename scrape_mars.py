@@ -17,7 +17,7 @@ def init_browser():
     # Chromedriver path
     executable_path={'executable_path': ChromeDriverManager().install()}
     #init_browser function must return the browser to pass through to other functions
-    return Browser('chrome', **executable_path, headless=True)
+    return Browser('chrome', **executable_path, headless=False) #headless= True will run in the background you will not see it
 
 def scrape():
     from bs4 import BeautifulSoup
@@ -78,7 +78,7 @@ def scrape():
     mars_facts=mars_facts.rename(columns=({0: "Metric", 1: "Measurement"}))
     mars_facts=mars_facts.set_index('Metric')
     #export table to html string
-    mars_facts=mars_facts.to_html(classes="table-dark")
+    mars_facts=mars_facts.to_html(classes="table table-md table-dark")
     #print(mars_facts)
 
     #append mars_facts to mars_dict, use "mars_facts" as key
