@@ -63,7 +63,7 @@ def scrape():
     soup=BeautifulSoup(browser.html, 'html.parser')
     featured_image_url=soup.find_all("img", class_="BaseImage")
     #returns a list, grab by index integer
-    featured_image_url=(featured_image_url[2]['src'])
+    featured_image_url=(featured_image_url[1]['src'])
     #print(featured_image_url)
 
     #append mars_image to mars_dict, use 'image_tag'as key
@@ -78,7 +78,7 @@ def scrape():
     mars_facts=mars_facts.rename(columns=({0: "Metric", 1: "Measurement"}))
     mars_facts=mars_facts.set_index('Metric')
     #export table to html string
-    mars_facts=mars_facts.to_html(classes="table table-md table-dark")
+    mars_facts=mars_facts.to_html(classes="table table-dark")
     #print(mars_facts)
 
     #append mars_facts to mars_dict, use "mars_facts" as key
@@ -111,11 +111,17 @@ def scrape():
         count=count+1
         html=browser.html
         soup_2=BeautifulSoup(html, 'html.parser')
-        mars_img_url=browser.find_by_text('Sample')['href']
-        hemisphere_dict={"title": title, "img_url": mars_img_url}
+        mars_img_url=soup_2.find('img', class_='wide-image')['src']
+        # mars_img_url=browser.find_by_text('Sample')['href']
+        mars_img='https://astrogeology.usgs.gov/' + mars_img_url
+        hemisphere_dict={"title": title, "img_url": mars_img}
+
         hemisphere_img_urls.append(hemisphere_dict)
         #append hemisphere img urls to mars_dict, use 'hemispheres' as the key
+
         mars_dict['hemispheres']=hemisphere_img_urls
+        #https://astrogeology.usgs.gov/
+        ('https://astrogeology.usgs.gov/' +mars_img_url)
 
     #Close the browser after scraping
     browser.quit()

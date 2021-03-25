@@ -45,8 +45,8 @@ a {
 }*/
 
 .img_one {
-  width:1000px; 
-  height: 800px;
+  width:200px; 
+  height: 200px;
   box-shadow: 5px 5px 5px 2px black;
   /*padding: 40px;*/
   margin-right: 0px;
@@ -99,13 +99,18 @@ img {
   background-color: black;
 }
 
-.table {  font-size: 10px;
+.table {  font-size: 20px;
   text-align: center;
   /*padding: 2px;*/
-  background-color: white;
-  color: black;
+/*  background-color: white;
+  color: white;*/
 }
 
+
+.black { 
+  background-color:black;
+
+}
 
 /*as long as it is less than 600px then apply these rules:
 */
