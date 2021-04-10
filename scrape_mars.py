@@ -121,13 +121,14 @@ def scrape():
 
         mars_dict['hemispheres']=hemisphere_img_urls
         #https://astrogeology.usgs.gov/
-        ('https://astrogeology.usgs.gov/' +mars_img_url)
+        # ('https://astrogeology.usgs.gov/' +mars_img_url)
 
     #Close the browser after scraping
+
     browser.quit()
 
     #return mars_dict which has the scraped values
-    print(mars_dict)
+    # print(mars_dict)
     return mars_dict
     # print(mars_dict)
 
