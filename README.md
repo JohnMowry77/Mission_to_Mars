@@ -1,9 +1,10 @@
 
 # Mission to Mars
 
-! [Capture] [mission_to_mars](Images/mission_to_mars.png)
+! [Capture] ![mars_finish_one](https://user-images.githubusercontent.com/72773479/127752113-99082f46-78d4-4d66-b850-b2638eca561d.png)
 
-! [Capture] (https://user-images.githubusercontent.com/72773479/127752008-26527a1a-77bc-4918-98c1-f601b0316392.png)
+![mars_finish_three](https://user-images.githubusercontent.com/72773479/127752114-975f1935-78d7-4e90-8856-a3e959b8dc15.png)
+![mars_finish_two](https://user-images.githubusercontent.com/72773479/127752115-25a8f1fc-7ddc-4487-9aa7-066733f9a5f2.png)
 
 This project involed building a web application that scrapes various websites for data related to the Mission to Mars and displays the information in a single HTML page.* Used Splinter to navigate the sites when needed and BeautifulSoup to help find and parse out the necessary data. Used Pymongo for CRUD applications for the database. The data is overwritten each time the `/scrape` url is visited and new data is obtained. Used Bootstrap to structure the HTML template.
 
@@ -94,8 +95,8 @@ Use MongoDB with Flask templating to create a new HTML page that displays all of
 
 * Create a template HTML file called `index.html` that will take the mars data dictionary and display all of the data in the appropriate HTML elements.
 
-![final_app_part1.png](Images/final_app_part1.png)
-![final_app_part2.png](Images/final_app_part2.png)
+![Capture](Images/final_app_part1.png)
+![Capture](Images/final_app_part2.png)
 
 - - -
 
