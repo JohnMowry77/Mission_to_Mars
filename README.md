@@ -1,9 +1,9 @@
 
 # Mission to Mars
 
-! Capture [mission_to_mars](Images/mission_to_mars.png)
+! [Capture] [mission_to_mars](Images/mission_to_mars.png)
 
-! Capture (https://user-images.githubusercontent.com/72773479/127752008-26527a1a-77bc-4918-98c1-f601b0316392.png)
+! [Capture] (https://user-images.githubusercontent.com/72773479/127752008-26527a1a-77bc-4918-98c1-f601b0316392.png)
 
 This project involed building a web application that scrapes various websites for data related to the Mission to Mars and displays the information in a single HTML page.* Used Splinter to navigate the sites when needed and BeautifulSoup to help find and parse out the necessary data. Used Pymongo for CRUD applications for the database. The data is overwritten each time the `/scrape` url is visited and new data is obtained. Used Bootstrap to structure the HTML template.
 
