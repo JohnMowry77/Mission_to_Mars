@@ -1,7 +1,7 @@
 
 # Mission to Mars
 
-! [Capture] ![mars_finish_one](https://user-images.githubusercontent.com/72773479/127752113-99082f46-78d4-4d66-b850-b2638eca561d.png)
+![mars_finish_one](https://user-images.githubusercontent.com/72773479/127752113-99082f46-78d4-4d66-b850-b2638eca561d.png)
 
 ![mars_finish_three](https://user-images.githubusercontent.com/72773479/127752114-975f1935-78d7-4e90-8856-a3e959b8dc15.png)
 ![mars_finish_two](https://user-images.githubusercontent.com/72773479/127752115-25a8f1fc-7ddc-4487-9aa7-066733f9a5f2.png)
@@ -97,6 +97,13 @@ Use MongoDB with Flask templating to create a new HTML page that displays all of
 
 ![Capture](Images/final_app_part1.png)
 ![Capture](Images/final_app_part2.png)
+
+![mars_color](https://user-images.githubusercontent.com/72773479/127752153-00a16629-55ab-4fb0-b1c8-9b1fc4b01e1c.jpeg)
+![mars_life_2](https://user-images.githubusercontent.com/72773479/127752154-6e2792e4-626a-45e2-9263-4fce8d6b1891.jpeg)
+![Mars_life](https://user-images.githubusercontent.com/72773479/127752155-c0745e4c-dae3-449a-bfa6-670624e00c5f.jpg)
+![Mars](https://user-images.githubusercontent.com/72773479/127752156-662646c2-c6d3-484d-8e20-24990e90b4b4.jpg)
+![mission_to_mars](https://user-images.githubusercontent.com/72773479/127752157-05bea641-1438-4209-bf3c-e8f6a5ea9f49.png)
+
 
 - - -
 
