@@ -1,11 +1,15 @@
 
-# Web Scraping Homework - Mission to Mars
+# Mission to Mars
 
-![mission_to_mars](Images/mission_to_mars.png)
+! Capture [mission_to_mars](Images/mission_to_mars.png)
 
-In this assignment, you will build a web application that scrapes various websites for data related to the Mission to Mars and displays the information in a single HTML page. The following outlines what you need to do.
+! Capture (https://user-images.githubusercontent.com/72773479/127752008-26527a1a-77bc-4918-98c1-f601b0316392.png)
 
-### Before You Begin
+This project involed building a web application that scrapes various websites for data related to the Mission to Mars and displays the information in a single HTML page.* Used Splinter to navigate the sites when needed and BeautifulSoup to help find and parse out the necessary data. Used Pymongo for CRUD applications for the database. The data is overwritten each time the `/scrape` url is visited and new data is obtained. Used Bootstrap to structure the HTML template.
+
+The following outlines what the process is from start to finish:
+
+### Start here:
 
 1. Create a new repository for this project called `web-scraping-challenge`. **Do not add this homework to an existing repository**.
 
@@ -19,9 +23,8 @@ In this assignment, you will build a web application that scrapes various websit
 
 ## Step 1 - Scraping
 
-Complete your initial scraping using Jupyter Notebook, BeautifulSoup, Pandas, and Requests/Splinter.
-
-* Create a Jupyter Notebook file called `mission_to_mars.ipynb` and use this to complete all of your scraping and analysis tasks. The following outlines what you need to scrape.
+The process involved scrapping various html pages using Jupyter Notebook (JN), BeautifulSoup, Pandas, and Requests/Splinter. 
+* Created a JN file called `mission_to_mars.ipynb` and used this to complete all of the scraping and analysis tasks. The following outlines what html pages are scraped. 
 
 ### NASA Mars News
 
@@ -83,39 +86,18 @@ Use MongoDB with Flask templating to create a new HTML page that displays all of
 
 * Start by converting your Jupyter notebook into a Python script called `scrape_mars.py` with a function called `scrape` that will execute all of your scraping code from above and return one Python dictionary containing all of the scraped data.
 
-* Next, create a route called `/scrape` that will import your `scrape_mars.py` script and call your `scrape` function.
+* Next, create a route called `/scrape` that will import `scrape_mars.py` script and call `scrape` function.
 
   * Store the return value in Mongo as a Python dictionary.
 
-* Create a root route `/` that will query your Mongo database and pass the mars data into an HTML template to display the data.
+* Create a root route `/` that will query Mongo database and pass the mars data into an HTML template to display the data.
 
-* Create a template HTML file called `index.html` that will take the mars data dictionary and display all of the data in the appropriate HTML elements. Use the following as a guide for what the final product should look like, but feel free to create your own design.
+* Create a template HTML file called `index.html` that will take the mars data dictionary and display all of the data in the appropriate HTML elements.
 
 ![final_app_part1.png](Images/final_app_part1.png)
 ![final_app_part2.png](Images/final_app_part2.png)
 
 - - -
 
-## Step 3 - Submission
-
-To submit your work to BootCampSpot, create a new GitHub repository and upload the following:
-
-1. The Jupyter Notebook containing the scraping code used.
-
-2. Screenshots of your final application.
-
-3. Submit the link to your new repository to BootCampSpot.
-
-4. Ensure your repository has regular commits (i.e. 20+ commits) and a thorough README.md file
-
-## Hints
-
-* Use Splinter to navigate the sites when needed and BeautifulSoup to help find and parse out the necessary data.
-
-* Use Pymongo for CRUD applications for your database. For this homework, you can simply overwrite the existing document each time the `/scrape` url is visited and new data is obtained.
-
-* Use Bootstrap to structure your HTML template.
-
-### Copyright
-
-Trilogy Education Services © 2020. All Rights Reserved.
+### Finish
+* The end result will be an html page with an updated featured mars image, facts about mars, and four photos of mars hemishperes (Cerberus, Syrtis Major, Schiaparelli, Valles Marineris).
